@@ -21,6 +21,13 @@ public class View extends JFrame {
         this.model = model;
         draw();
     }
+    public void reset() {
+        total.setText(INITIAL);
+    }
+
+    public void setTotal(String newTotal) {
+        total.setText(newTotal);
+    }
 
     public void draw() {
         JPanel content = new JPanel();
@@ -28,6 +35,7 @@ public class View extends JFrame {
         content.add(userInput);
         content.add(multiply);
         content.add(new Label("Result"));
+        content.add(total);
         content.add(clear);
 
         this.setContentPane(content);
@@ -41,4 +49,7 @@ public class View extends JFrame {
         this.multiply.addActionListener(multiply);
     }
 
+    public void addClearListener(ActionListener cal) {
+        clear.addActionListener(cal);
+    }
 }

@@ -19,15 +19,23 @@ public class Controller {
         view.addMultiplyListener(new MultiplyListener());
     }
 
-    class MultiplyListener implements ActionListener{
+    class MultiplyListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            String userInput = " ";
+            String userInput = "";
             userInput = view.getUSerInput();
             System.out.println(userInput);
+            model.multiply(userInput);
+            view.setTotal(model.getValue());
+
         }
     }
 
-
+    class ClearListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            model.reset();
+            view.reset();
+        }
+    }
 
 }
